@@ -1,0 +1,7 @@
+@reference "tailwindcss";
+
+.navText {
+    @apply text-xl;
+    color: white;
+    font-family: var(--font-minecrafter-reg);
+}
