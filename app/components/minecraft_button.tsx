@@ -1,17 +1,18 @@
 "use client"
 import { ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 
-type MinecraftButtonProps = {
-  children: ReactNode;
-  onClick?: () => void;
-  href?: string;
-};
 
 const MinecraftButton = ({
   children,
   onClick,
+  className,
   href,
-}: MinecraftButtonProps) => {
+}: {  children: ReactNode,
+  onClick?: () => void,
+  className?: string
+  href?: string ,
+  }) => {
   const handleClick = () => {
     new Audio("/click.mp3").play().catch(() => {});
     onClick?.();
@@ -25,7 +26,7 @@ const MinecraftButton = ({
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}
-        className="minecraftButton flex items-center justify-center p-4"
+        className={twMerge("minecraftButton flex items-center justify-center p-4", className)}
       >
         {children}
       </a>
@@ -36,7 +37,7 @@ const MinecraftButton = ({
     <button
       type="button"
       onClick={handleClick}
-      className="minecraftButton flex items-center justify-center p-4"
+      className={twMerge("minecraftButton flex items-center justify-center p-4", className)}
     >
       {children}
     </button>
