@@ -21,6 +21,7 @@ export const ProjectNavigationCard = ({ project, onExit, onChangeTab }: { projec
     const selectTab = (projectTabDetail: ProjectTabDetail) => {
         onChangeTab(projectTabDetail);
         setSelected(projectTabDetail.tab);
+        new Audio("/click.mp3").play().catch(() => { });
     };
 
     return (
@@ -54,9 +55,9 @@ export const ProjectDetailsCard = ({ projectTabDetail }: { projectTabDetail: Pro
         <StackCard>
             <div className="max-w-200 flex flex-col gap-5 h-200 md:h-150">
                 <div className={`${styles.optionText} self-center`}>{projectTabDetail.tab}</div>
-                <Divider/>
+                <Divider />
                 <Image src={`${projectTabDetail.path}${detail.image}`} alt={projectTabDetail.tab} width="128" height="128" />
-                <Divider/>
+                <Divider />
                 <div className={`${styles.tabParagraph} overflow-y-auto text-start`}>
                     {detail.description}
                 </div>

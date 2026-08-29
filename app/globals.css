@@ -35,7 +35,7 @@ h2 {
   padding: 0;
   margin: 0;
   font-family: var(--font-minecrafter-reg);
-  color: white;
+  color: rgb(30,30,31);
 }
 
 .fadeSlideUp {
@@ -47,11 +47,18 @@ h2 {
   @apply border-t-[3px] border-l-[3px] border-r-[3px] border-b-[3px] bg-[#D3D3D3] border-t-white border-l-white border-r-[#2B2B2B] border-b-[#2B2B2B]
         active:bg-[#313233] active:border-t-[#2B2B2B] active:border-l-[#2B2B2B] active:border-r-white active:border-b-white;
   cursor: pointer;
+  font-family: var(--font-mc-nametag);
 }
 
 .minecraftButton:active,
 .minecraftButton:active * {
   color: white !important;
+}
+
+.credit {
+  @apply bg-[rgb(30,30,31)] text-[clamp(0.7rem,0.5rem+1vw,1rem)] w-fit p-1 self-center;
+  font-family: var(--font-mc-nametag);
+  color: white;
 }
 
 .stackCard {
@@ -80,28 +87,14 @@ h2 {
   color: white;
 }
 
+.sectionHeader {
+  @apply border-b-10 border-b-[rgb(177,178,181)]/60 bg-[rgb(230,232,235)] py-3;
+}
+
 .sectionContent {
-  @apply bg-black/20 p-4 border-2 border-black flex flex-col gap-20 pb-20;
+  @apply bg-black/20 p-4 border-2 border-black flex flex-col gap-20 py-20 pb-20;
 }
 
-@layer utilities {
-  ::-webkit-scrollbar {
-    width: 16px;
-    height: 16px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #d3d3d3;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply border-t-[3px] border-l-[3px] border-r-[3px] border-b-[3px] bg-[#D3D3D3] border-t-white border-l-white border-r-[#2B2B2B] border-b-[#2B2B2B];
-  }
-
-  ::-webkit-scrollbar-thumb:active {
-    @apply bg-[#313233] border-t-[#2B2B2B] border-l-[#2B2B2B] border-r-white border-b-white;
-  }
-}
 
 @keyframes fadeSlideUp {
   from {

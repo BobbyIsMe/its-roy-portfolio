@@ -6,7 +6,7 @@ import { Constants } from '@/app/constants';
 
 
 export default function ImageSlider() {
-  const [sliderPosition, setSliderPosition] = useState<number>(50);
+  const [sliderPosition, setSliderPosition] = useState<number>(52);
   const [isDragging, setIsDragging] = useState<boolean>(false);
 
   const handleMove = (clientX: number, rect: DOMRect) => {
@@ -34,8 +34,8 @@ export default function ImageSlider() {
         }}
       >
         <Image
-          src={`${Constants.ROY_PATH}after.webp`}
-          alt="After"
+          src={`${Constants.ROY_PATH}before.webp`}
+          alt="Before"
           fill
           sizes="(max-width: 1200px) 100vw, 1200px"
           className="object-cover pointer-events-none"
@@ -46,9 +46,10 @@ export default function ImageSlider() {
           className="absolute inset-0 overflow-hidden pointer-events-none"
           style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
         >
+
           <Image
-            src={`${Constants.ROY_PATH}before.webp`}
-            alt="Before"
+            src={`${Constants.ROY_PATH}after.webp`}
+            alt="After"
             fill
             sizes="(max-width: 1200px) 100vw, 1200px"
             className="object-cover pointer-events-none"

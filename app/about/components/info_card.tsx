@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import styles from '../about.module.css'
 import MinecraftButton from '@/app/components/minecraft_button';
@@ -14,7 +15,7 @@ const InfoCard = () => {
                     <div className={styles.infoCardText}> MEET ROY</div>
                     <div className={styles.infoCardContent}>
                         <div className={styles.contentText}>Hello, I am Roy Dennis M. Patalinghug! I am a 3rd year student, currently taking Bachelor of Science in Information Technology at the University of San Carlos.</div>
-                        <div className="self-end"><MinecraftButton>{"NEXT"}</MinecraftButton></div>
+                        <div className="self-end"><MinecraftButton onClick={() => {}}>{">"}</MinecraftButton></div>
                     </div>
                 </div>
             </div>

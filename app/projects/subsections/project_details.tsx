@@ -10,7 +10,7 @@ const ProjectDetails = ({project, onExit} : {project : Project, onExit : () => v
     const [currentProjectTabDetail, setProjectTabDetail] = useState(desc);
 
   return (
-    <div className="p-5 flex flex-wrap justify-between">
+    <div className="p-5 flex flex-wrap justify-between gap-y-5">
         <ProjectNavigationCard project={project} onExit={onExit} onChangeTab={setProjectTabDetail}/>
         <ProjectDetailsCard projectTabDetail={currentProjectTabDetail}/>
     </div>

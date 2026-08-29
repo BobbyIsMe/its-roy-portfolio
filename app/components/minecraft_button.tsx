@@ -3,21 +3,7 @@ import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
 
-const MinecraftButton = ({
-  children,
-  onClick,
-  className,
-  href,
-}: {  children: ReactNode,
-  onClick?: () => void,
-  className?: string
-  href?: string ,
-  }) => {
-  const handleClick = () => {
-    new Audio("/click.mp3").play().catch(() => {});
-    onClick?.();
-  };
-
+const MinecraftButton = ({ children, onClick, className, href, }: { children: ReactNode, onClick?: () => void, className?: string, href?: string }) => {
 
   if (href) {
     return (
@@ -25,7 +11,10 @@ const MinecraftButton = ({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={handleClick}
+        onClick={onClick}
+        onMouseDown={() => {
+          new Audio("/click.mp3").play().catch(() => { });
+        }}
         className={twMerge("minecraftButton flex items-center justify-center p-4", className)}
       >
         {children}
@@ -36,7 +25,10 @@ const MinecraftButton = ({
   return (
     <button
       type="button"
-      onClick={handleClick}
+      onClick={onClick}
+      onMouseDown={() => {
+          new Audio("/click.mp3").play().catch(() => { });
+        }}
       className={twMerge("minecraftButton flex items-center justify-center p-4", className)}
     >
       {children}

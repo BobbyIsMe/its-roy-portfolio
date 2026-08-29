@@ -5,11 +5,9 @@ import Certificates from './subsections/certificates';
 import TechStacks from './subsections/tech_stacks';
 import Section from '../components/section';
 
-const clamp: string = "px-[clamp(1rem,8vw,10rem)]";
-
 const About = () => {
     return (
-        <Section header="ABOUT" background="about_bg.webp">
+        <Section header="ABOUT" background="about_bg.webp" credit="opal" href="https://minecraftstorage.com/shaders/opal">
             <WhoIsRoy />
                 <RoyMeaning />
                 <Certificates />

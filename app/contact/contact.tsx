@@ -1,16 +1,19 @@
 import React from 'react'
 import ContactInformation from './subsections/contact_information';
-
-const px_clamp: string = "px-[clamp(1rem,8vw,10rem)]";
+import Section from '../components/section';
+import ContactForm from './subsections/contact_form';
+import ScrollAnimation from '../scroll_animation';
 
 const Contact = () => {
   return (
-    <div className="w-full bg-sky-500 text-center">
-      Contact Me
-      <div className={`py-10 ${px_clamp} flex flex-wrap justify-center gap-10`}>      
-        <ContactInformation/>
-      </div>
-    </div>
+    <Section header="Contact Me" background="contact.webp" credit="Badlion" href="https://www.badlion.net/minecraft-blog/minecraft-rarest-structures">
+      <ScrollAnimation>
+        <div className="flex flex-wrap items-stretch justify-center gap-20 text-start">
+          <ContactInformation />
+          <ContactForm />
+        </div>
+      </ScrollAnimation>
+    </Section>
   )
 }
 

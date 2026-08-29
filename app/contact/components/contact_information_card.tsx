@@ -1,10 +1,11 @@
 import React from 'react'
+import styles from '../contact.module.css';
 
-const ContactInformationCard = ({ label, contact }: { label: string, contact: string }) => {
+const ContactInformationCard = ({ label, contact, }: { label: string, contact: string }) => {
     return (
         <div className="flex flex-col">
-            {label}
-            <div>{contact}</div>
+            <div className={styles.contactInfoLabel}>{label}</div>
+            <div className={styles.contactInfoValue}>{contact}</div>
         </div>
     )
 }
