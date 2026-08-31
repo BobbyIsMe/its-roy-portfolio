@@ -4,7 +4,7 @@
   animation: marquee 20s linear infinite;
 }
 
-.marquee:has(.certificateCard:hover) {
+.marquee:has(.certificateCard:hover), .marquee:has(.active) {
   animation-play-state: paused;
 }
 
@@ -87,7 +87,7 @@
 }
 
 .infoCardInner {
-  @apply border-t-[3px] border-l-[3px] border-r-[3px] border-b-[3px] bg-[rgb(198,198,198)]   border-t-white border-l-white border-r-[rgb(85,85,85)] border-b-[rgb(85,85,85)] p-4 flex flex-col gap-4 justify-center;
+  @apply border-3 bg-[rgb(198,198,198)]   border-t-white border-l-white border-r-[rgb(85,85,85)] border-b-[rgb(85,85,85)] p-4 flex flex-col gap-4 justify-center;
 }
 
 .infoCardText {
@@ -152,7 +152,7 @@
 
 .techStack {
   @apply flex flex-row items-center gap-5 text-start p-2 border-t-[3px] border-l-[3px] border-r-[3px] border-b-[3px] bg-[rgb(72,73,74)] border-t-[rgb(90,91,92)] border-l-[rgb(90,91,92)] border-r-[rgb(51,51,52)] border-b-[rgb(51,51,52)];
-  @apply text-[clamp(0.3rem,0.2rem+1vw,2rem)];
+  @apply text-[clamp(0.7rem,0.2rem+1vw,2rem)];
   font-family: var(--font-mc-nametag);
   color: white;
 }

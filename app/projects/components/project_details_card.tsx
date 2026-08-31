@@ -7,6 +7,7 @@ import { Constants } from '@/app/constants';
 import StackCard from '@/app/components/stack_card';
 import Divider from '@/app/components/divider';
 import MinecraftButton from '@/app/components/minecraft_button';
+import ImagePopup from '@/app/components/image_popup';
 
 const ButtonDetail = ({ projectTabDetail, onChangeTab, selected }: { projectTabDetail: ProjectTabDetail, onChangeTab: (projectTabDetail: ProjectTabDetail) => void, selected: string }) => {
     return (
@@ -53,16 +54,30 @@ export const ProjectNavigationCard = ({ project, onExit, onChangeTab }: { projec
 
 export const ProjectDetailsCard = ({ projectTabDetail }: { projectTabDetail: ProjectTabDetail }) => {
     const detail: ProjectDetail = projectTabDetail.projectDetail;
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const image = `${projectTabDetail.path}${detail.image}`;
     return (
         <StackCard>
             <div className="max-w-200 flex flex-col gap-5 h-200 md:h-150">
                 <div className={`${styles.optionText} self-center`}>{projectTabDetail.tab}</div>
                 <Divider />
-                <Image src={`${projectTabDetail.path}${detail.image}`} alt={projectTabDetail.tab} width="128" height="128" />
+                <div className="relative w-full h-80 cursor-pointer">
+                    <Image src={image} alt={projectTabDetail.tab} fill className="object-cover"
+                        onClick={() => setIsPopupOpen(true)}
+                    />
+                </div>
                 <Divider />
                 <div className={`${styles.tabParagraph} overflow-y-auto text-start`}>
                     {detail.description}
                 </div>
+                {
+                    <ImagePopup
+                        isOpen={isPopupOpen}
+                        onClose={() => setIsPopupOpen(false)}
+                        src={[`${projectTabDetail.path}${detail.image}`]}
+                        alt={projectTabDetail.tab}
+                    />
+                }
             </div>
         </StackCard>
     )

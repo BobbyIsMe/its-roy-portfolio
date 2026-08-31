@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import styles from '../about.module.css'
 import MinecraftButton from '@/app/components/minecraft_button';
+import Pagination from '@/app/components/pagination';
 
 const Text = () => {
 
@@ -35,23 +36,16 @@ const InfoCard = () => {
                     <div className={styles.infoCardText}> MEET ROY</div>
                     <div className={styles.infoCardContent}>
                         <div className={`${styles.contentText} overflow-y-auto`}>{textList[page].text}</div>
-                        <div className="grid grid-cols-3 items-center">
-                            <div className="justify-self-start">
-                                <NavigateButton text="<" isShown={page > 0} onClick={
-                                    () => {
-                                        setPage(page - 1);
-                                    }
-                                } />
-                            </div>
-                            <div className={`${styles.contentText} justify-self-center`}>{`${page + 1} / ${textList.length}`}</div>
-                            <div className="justify-self-end">
-                                <NavigateButton text=">" isShown={page != textList.length - 1} onClick={
-                                    () => {
-                                        setPage(page + 1);
-                                    }
-                                } />
-                            </div>
-                        </div>
+                        <Pagination currentPage={page} maxPage={textList.length} 
+                        onPrevious={() => {
+                            setPage(page - 1)
+                        }
+                        }
+                        onNext={() => {
+                            setPage(page + 1)
+                        }
+                        }
+                        />
                     </div>
                 </div>
             </div>

@@ -50,6 +50,11 @@
     @apply border-b-4 border-b-[rgb(29,77,19)] active:border-b-0;
 }
 
+.formResponse {
+    @apply text-[clamp(1rem,0.2rem+0.8vw,1.5rem)] text-[#55FF55] p-1;
+    font-family: var(--font-mc-nametag);
+}
+
 .submitButton {
     @apply border-2 border-t-[rgb(99,157,82)] border-l-[rgb(99,157,82)] border-b-[rgb(79,145,60)] border-r-[rgb(79,145,60)] bg-[rgb(60,133,39)] text-[clamp(1rem,0.2rem+0.8vw,1.5rem)] text-center py-2 px-3;
     font-family: var(--font-mc-nametag);

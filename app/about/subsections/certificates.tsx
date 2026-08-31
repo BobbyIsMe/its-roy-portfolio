@@ -58,6 +58,7 @@ const Certificates = () => {
                                     name={certificate.name}
                                     description={certificate.description}
                                     date={certificate.date}
+                                    certificates={certificate.certificate}
                                 />
                             ))}
                         </div>
@@ -73,6 +74,7 @@ const Certificates = () => {
                                     name={certificate.name}
                                     description={certificate.description}
                                     date={certificate.date}
+                                    certificates={certificate.certificate}
                                 />
                             ))}
                         </div>

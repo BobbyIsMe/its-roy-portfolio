@@ -18,6 +18,8 @@ export const Constants = {
 
   ANIMATIONS_PATH: "/animations/",
 
+  CERTIFICATES_PATH: "/certificates/",
+
   FRONTEND_PATH: "/frontend/",
   BACKEND_PATH: "/frontend/",
   PROGLANG_PATH: "/proglang/",

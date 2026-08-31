@@ -17,6 +17,25 @@ html {
   --font-mono: var(--font-geist-mono);
 }
 
+.paginationText {
+  @apply text-[rgb(76,76,76)] text-[clamp(0.7rem,0.2rem+1vw,1rem)];
+  text-align: start;
+  font-family: var(--font-minecraft);
+  color: white;
+}
+
+.popupOuter {
+  @apply border-2 border-black;
+}
+
+.popupInner {
+  @apply border-3 bg-[rgb(198,198,198)]   border-t-white border-l-white border-r-[rgb(85,85,85)] border-b-[rgb(85,85,85)] p-1 flex flex-col gap-4 justify-center;
+}
+
+.popupContent {
+  @apply border-3 bg-black/80 border-t-[rgb(57,57,57)] border-l-[rgb(57,57,57)] border-r-white border-b-white p-3 grid grid-rows-[minmax(0,1fr)_auto];
+}
+
 .loadMenu {
   @apply fixed inset-0 z-9999 flex items-center justify-center bg-[rgb(46,33,23)] text-[clamp(1.5rem,0.5rem+2vw,2rem)];
   font-family: var(--font-mc-nametag);

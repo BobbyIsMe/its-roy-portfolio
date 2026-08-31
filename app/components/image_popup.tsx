@@ -1,80 +1,85 @@
 'use client';
 
-import React, { useEffect, useSyncExternalStore } from 'react';
+import React, { useEffect, useState, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
+import MinecraftButton from './minecraft_button';
+import Pagination from './pagination';
+import { Constants } from '../constants';
 
-interface ImagePopupProps {
-  isOpen: boolean;
-  onClose: () => void;
-  src: string;
-  alt?: string;
-}
-
-const emptySubscribe = () => () => {};
+const emptySubscribe = () => () => { };
 function useIsMounted() {
-  return useSyncExternalStore(
-    emptySubscribe,
-    () => true,
-    () => false
-  );
+    return useSyncExternalStore(
+        emptySubscribe,
+        () => true,
+        () => false
+    );
 }
 
-export default function ImagePopup({
-  isOpen,
-  onClose,
-  src,
-  alt = 'Popup Image',
-}: ImagePopupProps) {
-  const isMounted = useIsMounted();
+export default function ImagePopup({ isOpen, onClose, src, alt = 'Popup Image', }: { isOpen: boolean, onClose: () => void, src: string[], alt?: string; }) {
+    const isMounted = useIsMounted();
+    const [page, setPage] = useState(0);
 
-  useEffect(() => {
-    if (!isOpen) return;
+    useEffect(() => {
+        if (!isOpen) return;
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onClose();
+        };
 
-    document.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
+        document.addEventListener('keydown', handleKeyDown);
+        document.body.style.overflow = 'hidden';
 
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen, onClose]);
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen, onClose]);
 
-  if (!isOpen || !isMounted) return null;
+    if (!isOpen || !isMounted) return null;
 
-  return createPortal(
-    <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-      onClick={onClose}
-    >
-      <div
-        className="relative max-w-[90vw] max-h-[90vh] overflow-hidden rounded-lg shadow-2xl bg-white dark:bg-zinc-900"
-        onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/60 text-white transition hover:bg-black/90 focus:outline-none"
-          aria-label="Close popup"
+    return createPortal(
+        <div
+            className="fixed inset-0 z-9999 flex items-center justify-center bg-black/80 backdrop-blur-sm py-15 overflow-y-auto"
+            onClick={onClose}
         >
-          ✕
-        </button>
-
-        <div className="relative h-[80vh] w-[80vw] max-w-4xl">
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            className="object-contain"
-            sizes="(max-width: 1200px) 100vw, 1200px"
-            priority
-          />
-        </div>
-      </div>
-    </div>,
-    document.body
-  );
+            <div className="flex min-h-full items-center justify-center py-15">
+                <div
+                    className="popupOuter relative max-w-[90vw] max-h-[90vh]"
+                    onClick={(e: React.MouseEvent<HTMLDivElement>) => e.stopPropagation()}
+                >
+                    <div className="popupInner">
+                        <div className="popupContent">
+                            <div className="justify-self-end">
+                                <MinecraftButton onClick={onClose}>
+                                    X
+                                </MinecraftButton>
+                            </div>
+                            <div className="relative h-[80vh] w-[80vw] max-w-4xl">
+                                <Image
+                                    src={`${Constants.CERTIFICATES_PATH}${src[page]}`}
+                                    alt={alt}
+                                    fill
+                                    className="object-contain"
+                                    sizes="(max-width: 1200px) 100vw, 1200px"
+                                    priority
+                                />
+                            </div>
+                            <Pagination currentPage={page} maxPage={src.length}
+                                onPrevious={() => {
+                                    setPage(page - 1)
+                                }
+                                }
+                                onNext={() => {
+                                    setPage(page + 1)
+                                }
+                                }
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>,
+        document.body
+    );
 }

@@ -20,7 +20,7 @@ const TechStackRow = ({ icon, name }: { icon: string, name: string }) => {
       <div className={styles.techStackImage}>
         <Image src={icon} alt={`${name}_img`} width={64} height={64}></Image>
       </div>
-      <p>{name}</p>
+      <div>{name}</div>
     </div>
   )
 }
