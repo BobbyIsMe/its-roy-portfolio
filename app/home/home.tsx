@@ -3,10 +3,11 @@ import HeroSection from './components/hero_section';
 import ImageSlider from './components/image_slider';
 import MinecraftSplash from './components/minecraft_splash';
 import NameTag from './components/name_tag';
+import { Constants } from '../constants';
 
 const Home = () => {
     return (
-        <div className="relative w-full overflow-hidden">
+        <div className="relative w-full overflow-hidden" id={Constants.HOME}>
             <div
                 className="absolute inset-0 scale-105 bg-cover bg-center blur-sm"
                 style={{ backgroundImage: "url('/home_bg.webp')" }}

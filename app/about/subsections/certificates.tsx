@@ -2,6 +2,7 @@ import React from 'react'
 import CertificateCard, { Certificate } from '../components/certificate_card'
 import styles from "../about.module.css";
 import Subsection from '@/app/components/subsection';
+import { Constants } from '@/app/constants';
 
 const accenture_cert: Certificate = {
     logo: "accenture.svg",
@@ -44,7 +45,7 @@ const certificate_list: Certificate[] = [
 
 const Certificates = () => {
     return (
-        <Subsection header="Certificates">
+        <Subsection header="Certificates" id={Constants.CERTIFICATES}>
             <div className="relative w-full overflow-hidden py-5">
                 <div className="w-full overflow-hidden">
                     <div className={`${styles.marquee} flex w-max`}>

@@ -27,9 +27,11 @@ export const ProjectNavigationCard = ({ project, onExit, onChangeTab }: { projec
     return (
         <StackCard>
             <div className="grid items-start w-full lg:w-100 grid-cols-[auto_1fr]">
-                <MinecraftButton className={`col-span-1 self-center ml-2 p-2 w-10 h-10 ${styles.choiceInfo}`} onClick={onExit}>
-                    {"<"}
-                </MinecraftButton>
+                <div className="self-center mx-1">
+                    <MinecraftButton className={`col-span-1 self-center w-10 h-10 ${styles.choiceInfo}`} onClick={onExit}>
+                        {"<"}
+                    </MinecraftButton>
+                </div>
                 <div className={`${styles.choiceTitle} p-3 self-center`}>{project.name}</div>
                 <div className="col-span-2"><Divider /></div>
                 <div className="col-start-2 pt-5 flex flex-col w-full">

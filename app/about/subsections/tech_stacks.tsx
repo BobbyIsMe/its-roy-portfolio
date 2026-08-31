@@ -59,7 +59,7 @@ const techStackSectList: TechStackSection[] = [
 
 const TechStacks = () => {
   return (
-    <Subsection header="Tech Stacks" threshold={0.5}>
+    <Subsection header="Tech Stacks" id={Constants.TECH_STACKS}>
         <div className="grid grid-cols-1 gap-10 py-2 px-[clamp(0.2rem,1vw,1.5rem)] sm:grid-cols-2">
           {techStackSectList.map((techStackSect) => (
             <TechStackCard

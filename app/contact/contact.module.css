@@ -24,6 +24,11 @@
     color: rgb(208, 209, 212);
 }
 
+.contactHeader {
+  @apply bg-[rgb(30,30,31)] text-[clamp(1.5rem,0.5rem+2vw,5rem)]  w-fit p-2 self-center;
+  font-family: var(--font-minecrafter-reg);
+  color: white;
+}
 
 .contactInputLabel {
     @apply text-[clamp(1rem,0.2rem+0.8vw,1.5rem)];

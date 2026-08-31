@@ -1,24 +1,25 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import { Constants } from '../constants';
 import nav from './nav.module.css';
 
-type Section = {
+export type Section = {
   name: string;
   section_id: string;
   subsections?: Section[];
 }
 
 //Subsections
-const commercial_section: Section = { name: "Commercial", section_id: Constants.COMMERCIAL};
-const meaning_section: Section = { name: "Roy Meaning", section_id: Constants.MEANING};
-const certificates_section: Section = { name: "Certificates", section_id: Constants.CERTIFICATES};
-const tech_stacks_section: Section = { name: "Tech Stacks", section_id: Constants.TECH_STACKS};
+const commercial_section: Section = { name: "Commercial", section_id: Constants.COMMERCIAL };
+const meaning_section: Section = { name: "Roy Meaning", section_id: Constants.MEANING };
+const certificates_section: Section = { name: "Certificates", section_id: Constants.CERTIFICATES };
+const tech_stacks_section: Section = { name: "Tech Stacks", section_id: Constants.TECH_STACKS };
 
 //Sections
-const home_section: Section = { name: "Home", section_id: Constants.HOME};
+const home_section: Section = { name: "Home", section_id: Constants.HOME };
 const about_section: Section = { name: "About", section_id: Constants.ABOUT, subsections: [commercial_section, meaning_section, certificates_section, tech_stacks_section] };
-const projects_section: Section = { name: "Projects", section_id: Constants.PROJECTS, subsections: [commercial_section] };
-const contact_section: Section = { name: "Contact", section_id: Constants.CONTACT};
+const projects_section: Section = { name: "Projects", section_id: Constants.PROJECTS };
+const contact_section: Section = { name: "Contact", section_id: Constants.CONTACT };
 
 const section_list: Section[] = [
   home_section,
@@ -30,19 +31,26 @@ const section_list: Section[] = [
 const SectionItem = ({
   section,
   hamburger,
+  isCurrent = false,
 }: {
-  section: Section;
-  hamburger: boolean;
+  section: Section,
+  hamburger: boolean,
+  isCurrent?: boolean
 }) => {
-  const hasSubsections =
-    section.subsections && section.subsections.length > 0;
+  const hasSubsections = section.subsections && section.subsections.length > 0;
+
+  function playSound() {
+    const audio = new Audio("/teleport.mp3");
+    audio.volume = 0.5;
+    audio.play().catch(() => { });
+  }
 
   return (
     <li>
       {hasSubsections ? (
         hamburger ? (
           <>
-            <a href={`#${section.section_id}`} className={nav.navText}>
+            <a href={`#${section.section_id}`} className={`${nav.navText} ${(isCurrent != null && isCurrent) ? 'text-green-400' : 'text-white'}`} onClick={playSound}>
               {section.name}
             </a>
 
@@ -57,7 +65,7 @@ const SectionItem = ({
             </ul>
           </>
         ) : (
-          <details name="navigation">
+          <details name="navigation" className={`${nav.navText} ${(isCurrent != null && isCurrent) ? 'text-green-400' : 'text-white'}`}>
             <summary className={nav.navText}>{section.name}</summary>
 
             <ul className="p-2 bg-[rgb(43_45_49)] rounded-none w-max z-1 right-0">
@@ -72,7 +80,7 @@ const SectionItem = ({
           </details>
         )
       ) : (
-        <a href={`#${section.section_id}`} className={nav.navText}>
+        <a href={`#${section.section_id}`} className={`${nav.navText} ${(isCurrent) ? 'text-green-400' : 'text-white'}`} onClick={playSound}>
           {section.name}
         </a>
       )}
@@ -81,6 +89,48 @@ const SectionItem = ({
 }
 
 const NavigationBar = () => {
+
+  const [currentSection, setSection] = useState("home");
+  const section_id = section_list.map(
+    section => section.section_id
+  );
+
+  useEffect(() => {
+    const elements = section_id.map(id => document.getElementById(id)).filter((element): element is HTMLElement => element !== null);
+
+    if (elements.length === 0) return;
+
+    const orderedIds = elements.map(el => el.id);
+    const visibleSections = new Set<string>();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const id = entry.target.id;
+          if (entry.isIntersecting) {
+            visibleSections.add(id);
+          } else {
+            visibleSections.delete(id);
+          }
+        }
+
+        const current = orderedIds.filter(id => visibleSections.has(id)).pop();
+
+        if (current) {
+          setSection(current);
+        }
+      },
+      {
+        rootMargin: `-150px 0px -100% 0px`,
+        threshold: 0,
+      }
+    );
+
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [section_id]);
+
   return (
     <div className="navbar fixed top-0 left-0 z-50 backdrop-blur-md bg  bg-[rgb(43_45_49)]/60 shadow-sm">
       <div className="navbar-start">
@@ -96,6 +146,7 @@ const NavigationBar = () => {
                 key={section.section_id}
                 section={section}
                 hamburger={true}
+                isCurrent={currentSection == section.section_id}
               />
             ))}
           </ul>
@@ -105,12 +156,13 @@ const NavigationBar = () => {
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal flex-nowrap gap-10">
           {section_list.map((section) => (
-              <SectionItem
-                key={section.section_id}
-                section={section}
-                hamburger={false}
-              />
-            ))}
+            <SectionItem
+              key={section.section_id}
+              section={section}
+              hamburger={false}
+              isCurrent={currentSection == section.section_id}
+            />
+          ))}
         </ul>
       </div>
     </div>

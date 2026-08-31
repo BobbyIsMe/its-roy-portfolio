@@ -15,9 +15,9 @@ const MinecraftButton = ({ children, onClick, className, href, }: { children: Re
         onMouseDown={() => {
           new Audio("/click.mp3").play().catch(() => { });
         }}
-        className={twMerge("minecraftButton flex items-center justify-center p-4", className)}
+        className="minecraftButtonBorder"
       >
-        {children}
+        <div className={twMerge("minecraftButton flex items-center justify-center p-4", className)}>{children}</div>
       </a>
     );
   }
@@ -27,11 +27,11 @@ const MinecraftButton = ({ children, onClick, className, href, }: { children: Re
       type="button"
       onClick={onClick}
       onMouseDown={() => {
-          new Audio("/click.mp3").play().catch(() => { });
-        }}
-      className={twMerge("minecraftButton flex items-center justify-center p-4", className)}
+        new Audio("/click.mp3").play().catch(() => { });
+      }}
+      className="minecraftButtonBorder"
     >
-      {children}
+      <div className={twMerge("minecraftButton flex items-center justify-center p-4", className)}>{children}</div>
     </button>
   );
 };

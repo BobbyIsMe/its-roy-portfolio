@@ -1,6 +1,7 @@
 import Subsection from '@/app/components/subsection'
 import React from 'react'
 import LetterCard, { LetterMeaning } from '../components/letter_card';
+import { Constants } from '@/app/constants';
 
 const letters: LetterMeaning[] = [
     { letter: 'R', meaning: "Right man for the job", blockImg: "diamond.webp", itemImg: "diamond_ingot.webp", color: "text-[rgb(102,246,228)]"},
@@ -10,7 +11,7 @@ const letters: LetterMeaning[] = [
 
 const RoyMeaning = () => {
     return (
-        <Subsection header="ROY MEANING">
+        <Subsection header="ROY MEANING" id={Constants.MEANING}>
             <div className="p-10 flex flex-col flex_wrap sm:grid sm:grid-cols-3">
                 {letters.map(letter => <LetterCard key={letter.letter} letter={letter} />)}
             </div>

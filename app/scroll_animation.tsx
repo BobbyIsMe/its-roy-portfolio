@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from "react";
 
-export default function ScrollAnimation({ children, className = "", threshold = 0.8}: { children: React.ReactNode; className?: string, threshold? : number}) {
+export default function ScrollAnimation({ children, className = "", threshold = 0.5, sound }: { children: React.ReactNode; className?: string, threshold?: number, sound?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -14,11 +14,15 @@ export default function ScrollAnimation({ children, className = "", threshold = 
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
+          const audio = new Audio(`/${sound}`);
+          audio.volume = 0.3;
+          audio.play().catch(() => { });
           observer.unobserve(element);
         }
       },
       {
-        threshold: threshold,
+        threshold: 0,
+        rootMargin: `0px 0px -${threshold * 100}% 0px`,
       }
     );
 

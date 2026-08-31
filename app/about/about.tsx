@@ -4,14 +4,15 @@ import RoyMeaning from './subsections/roy_meaning';
 import Certificates from './subsections/certificates';
 import TechStacks from './subsections/tech_stacks';
 import Section from '../components/section';
+import { Constants } from '../constants';
 
 const About = () => {
     return (
-        <Section header="ABOUT" background="about_bg.webp" credit="opal" href="https://minecraftstorage.com/shaders/opal">
+        <Section header="ABOUT" background="about_bg.webp" id={Constants.ABOUT} credit="opal" href="https://minecraftstorage.com/shaders/opal">
             <WhoIsRoy />
-                <RoyMeaning />
-                <Certificates />
-                <TechStacks />
+            <RoyMeaning />
+            <Certificates />
+            <TechStacks />
         </Section>
     )
 }
