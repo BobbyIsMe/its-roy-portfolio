@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import ScrollAnimation from '../scroll_animation';
 
-const Subsection = ({ header, children, id}: { header: string, children: ReactNode, id : string}) => {
+const Subsection = ({ header, children, id}: { header: string, children: ReactNode, id? : string}) => {
     return (
         <ScrollAnimation>
             <div className="mx-[clamp(1rem,7vw,3rem)] flex flex-col justify-center">
