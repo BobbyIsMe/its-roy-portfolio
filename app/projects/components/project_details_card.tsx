@@ -8,6 +8,8 @@ import StackCard from '@/app/components/stack_card';
 import Divider from '@/app/components/divider';
 import MinecraftButton from '@/app/components/minecraft_button';
 import ImagePopup from '@/app/components/image_popup';
+import Pagination from '@/app/components/pagination';
+import TextColor from '@/app/components/text_color';
 
 const ButtonDetail = ({ projectTabDetail, onChangeTab, selected }: { projectTabDetail: ProjectTabDetail, onChangeTab: (projectTabDetail: ProjectTabDetail) => void, selected: string }) => {
     return (
@@ -27,6 +29,7 @@ export const ProjectNavigationCard = ({ project, onExit, onChangeTab }: { projec
 
     return (
         <StackCard>
+
             <div className="grid items-start w-full lg:w-100 grid-cols-[auto_1fr]">
                 <div className="self-center mx-1">
                     <MinecraftButton className={`col-span-1 self-center max-w-10 max-h-10 ${styles.choiceInfo}`} onClick={onExit}>
@@ -35,12 +38,12 @@ export const ProjectNavigationCard = ({ project, onExit, onChangeTab }: { projec
                 </div>
                 <div className={`${styles.choiceTitle} p-3 self-center`}>{project.name}</div>
                 <div className="col-span-2"><Divider /></div>
-                <div className="col-start-2 pt-5 flex flex-col w-full">
+                <div className="col-start-2 pt-5 flex flex-col w-full max-h-150 overflow-y-auto">
                     <ButtonDetail projectTabDetail={{ tab: "Description", path: Constants.DESC_PATH, projectDetail: project.description }} onChangeTab={selectTab} selected={selected} />
                     <div className={styles.optionText}>
-                        Features:
+                        {`Features (${project.features.length}):`}
                     </div>
-                    <div className="pl-5 flex">
+                    <div className="pl-5 flex flex-col">
                         {project.features.map(feature => <ButtonDetail key={feature.label} projectTabDetail={{ tab: feature.label, path: Constants.FEATURE_PATH, projectDetail: feature.detail }} onChangeTab={selectTab} selected={selected} />)}
                     </div>
                     <ButtonDetail projectTabDetail={{ tab: "Tech Used", path: Constants.TECH_USED_PATH, projectDetail: project.tech_used }} onChangeTab={selectTab} selected={selected} />
@@ -52,29 +55,46 @@ export const ProjectNavigationCard = ({ project, onExit, onChangeTab }: { projec
 }
 
 
-export const ProjectDetailsCard = ({ projectTabDetail }: { projectTabDetail: ProjectTabDetail }) => {
+export const ProjectDetailsCard = ({ projectTabDetail, page, setPage }: { projectTabDetail: ProjectTabDetail, page: number, setPage: (page: number) => void }) => {
     const detail: ProjectDetail = projectTabDetail.projectDetail;
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const image = `${projectTabDetail.path}${detail.image}`;
+    const image = `${projectTabDetail.path}${detail.image[page]}`;
     return (
-        <StackCard>
-            <div className="max-w-200 flex flex-col gap-5 h-200 md:h-150">
+        <StackCard className="max-w-200 w-full">
+            <div className="flex flex-col gap-5 h-200 md:h-180">
                 <div className={`${styles.optionText} self-center`}>{projectTabDetail.tab}</div>
                 <Divider />
-                <div className="relative h-40 cursor-pointer shrink-0">
-                    <Image src={image} alt={projectTabDetail.tab} fill className="object-cover"
-                        onClick={() => setIsPopupOpen(true)}
-                    />
+                <div className="h-80 flex flex-col gap-2">
+                    <div className="relative flex-1 min-h-0 cursor-pointer">
+                        <Image
+                            src={image}
+                            alt={projectTabDetail.tab}
+                            fill
+                            className="object-contain"
+                            onClick={() => setIsPopupOpen(true)}
+                        />
+                    </div>
+                    <div className="h-15 shrink-0 flex items-center justify-center">
+                        <Pagination
+                            currentPage={page}
+                            maxPage={detail.image.length}
+                            onNext={() => setPage(page + 1)}
+                            onPrevious={() => setPage(page - 1)}
+                        />
+                    </div>
                 </div>
                 <Divider />
-                <div className={`${styles.tabParagraph} overflow-y-auto text-start`}>
-                    {detail.description}
+                <div className="flex-1 min-h-0 overflow-y-auto text-start">
+                    <div className={styles.tabParagraph}>
+                        <TextColor text={detail.description} />
+                    </div>
                 </div>
                 {
-                    <ImagePopup
-                        isOpen={isPopupOpen}
+                    <ImagePopup key={`${isPopupOpen}-${page}`} isOpen={isPopupOpen}
                         onClose={() => setIsPopupOpen(false)}
-                        src={[`${projectTabDetail.path}${detail.image}`]}
+                        start={page}
+                        path={projectTabDetail.path}
+                        src={detail.image}
                         alt={projectTabDetail.tab}
                     />
                 }

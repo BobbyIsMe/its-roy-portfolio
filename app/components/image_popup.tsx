@@ -5,7 +5,6 @@ import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import MinecraftButton from './minecraft_button';
 import Pagination from './pagination';
-import { Constants } from '../constants';
 
 const emptySubscribe = () => () => { };
 function useIsMounted() {
@@ -16,9 +15,9 @@ function useIsMounted() {
     );
 }
 
-export default function ImagePopup({ isOpen, onClose, src, alt = 'Popup Image', }: { isOpen: boolean, onClose: () => void, src: string[], alt?: string; }) {
+export default function ImagePopup({ isOpen, onClose, path, start = 0, src, alt = 'Popup Image', }: { isOpen: boolean, onClose: () => void, path? : string, start? : number, src: string[], alt?: string; }) {
     const isMounted = useIsMounted();
-    const [page, setPage] = useState(0);
+    const [page, setPage] = useState(start);
 
     useEffect(() => {
         if (!isOpen) return;
@@ -57,7 +56,7 @@ export default function ImagePopup({ isOpen, onClose, src, alt = 'Popup Image', 
                             </div>
                             <div className="relative h-[80vh] w-[80vw] max-w-4xl">
                                 <Image
-                                    src={`${Constants.CERTIFICATES_PATH}${src[page]}`}
+                                    src={`${path}${src[page]}`}
                                     alt={alt}
                                     fill
                                     className="object-contain"

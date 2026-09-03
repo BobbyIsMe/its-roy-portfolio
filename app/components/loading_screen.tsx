@@ -3,7 +3,7 @@ import Menu from './menu';
 
 const LoadingScreen = () => {
     return (
-        <Menu text="Connecting to server..." />
+        <Menu text="Loading assets..." />
     );
 }
 

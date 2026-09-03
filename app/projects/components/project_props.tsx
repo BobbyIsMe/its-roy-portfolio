@@ -1,5 +1,5 @@
 export type ProjectDetail = {
-    image: string,
+    image: string[],
     description: string
 }
 

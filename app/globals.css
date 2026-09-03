@@ -104,7 +104,7 @@ h2 {
 }
 
 .stackCard {
-  @apply flex flex-col gap-5 border-2 border-black bg-black/40;
+  @apply flex flex-col gap-5 border-2 border-black bg-black/40 min-w-0;
 }
 
 .dividerTop {

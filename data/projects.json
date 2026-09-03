@@ -5,28 +5,97 @@
             "name": "Cerina's Sari-Sari Store",
             "info": "Item Reservation and Management System",
             "description": {
-                "image": "cerina_store_desc.webp",
-                "description": "A web-based reservation system for a sari-sari store that lets customers browse, search, filter, and reserve items, and staffs to inventory and reservations"
+                "image": [
+                    "cerina_store_desc.webp"
+                ],
+                "description": "A web-based reservation system for a sari-sari store that lets customers browse, search, filter, and reserve items, and staffs to inventory and reservations."
             },
             "features": [
                 {
-                    "label": "Feature 1",
+                    "label": "SMS Verification",
                     "detail": {
-                        "image": "cerina_store_1.webp",
-                        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                        "image": [
+                            "cerina_store_1.png"
+                        ],
+                        "description": "Users can create an account by verifying their mobile phone number through SMS using the ClickSend API. This verification helps prevent duplicate accounts, fake registrations, and automated bot accounts."
+                    }
+                },
+                {
+                    "label": "Search and Filter Items",
+                    "detail": {
+                        "image": [
+                            "cerina_store_2-1.png",
+                            "cerina_store_2-2.png"
+                        ],
+                        "description": "Users can search for available items using keywords and filter results based on item categories. Items are organized into categories to make the search process more efficient and convenient for users."
+                    }
+                },
+                {
+                    "label": "Item Detail Page",
+                    "detail": {
+                        "image": [
+                            "cerina_store_3.png"
+                        ],
+                        "description": "Item details display essential information about a selected item such as its description, price, variation, and current stock availability. Users can also interact with the page to reserve the desired quantity of the item."
+                    }
+                },
+                {
+                    "label": "Reservation Cart",
+                    "detail": {
+                        "image": [
+                            "cerina_store_4-1.png",
+                            "cerina_store_4-2.png"
+                        ],
+                        "description": "The reservation cart stores all items selected by the user for reservation into a single interface. Inside the reservation page, users can modify item quantities, view the total price, and review their selected items before confirming their reservation."
+                    }
+                },
+                {
+                    "label": "Notification System",
+                    "detail": {
+                        "image": [
+                            "cerina_store_5.png"
+                        ],
+                        "description": "Users are sent notifications to confirm their reservations and remind them that reserved items must be picked up within a deadline set. Additionally, they can also cancel their reservations through the reservation cart if they change their decision."
+                    }
+                },
+                {
+                    "label": "Inventory Management",
+                    "detail": {
+                        "image": [
+                            "cerina_store_6-1.png",
+                            "cerina_store_6-2.png",
+                            "cerina_store_6-3.png",
+                            "cerina_store_6-4.png"
+                        ],
+                        "description": "The inventory management page allows an inventory manager to manage the sari-sari store's available items and stock levels. Staff can add, remove, and update inventory records to keep the system's item information accurate and up to date."
+                    }
+                },
+                {
+                    "label": "Staff Operations",
+                    "detail": {
+                        "image": [
+                            "cerina_store_7-1.png",
+                            "cerina_store_7-2.png"
+                        ],
+                        "description": "The staff operations page allows a staff to manage reservations made by the customers. Staff can accept or reject reservation requests and set the check-in date."
                     }
                 }
             ],
             "tech_used": {
-                "image": "cerina_store_tech_used.webp",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                "image": [
+                    "cerina_store_tech_used-1.png",
+                    "cerina_store_tech_used-2.png"
+                ],
+                "description": "Frontend: \n- HTML\n- CSS\n- Bootstrap CSS\n-JavaScript\nBackend: \n- PHP\n- MySQL"
             },
             "source_code": {
-                "image": "cerina_store_source_code.webp",
-                "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                "image": [
+                    "cerina_store_source_code.png"
+                ],
+                "description": "https://github.com/BobbyIsMe/SariSariStore/tree/main\nContributors:\n- crowsified\n- Vyrips\n- BobbyIsMe\n- BemBalls"
             }
         },
-         {
+        {
             "logo": "gymjams.webp",
             "name": "GymJams",
             "info": "AI-Powered Fitness Companion",
@@ -52,7 +121,7 @@
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             }
         },
-         {
+        {
             "logo": "murderrun.webp",
             "name": "MurderRun",
             "info": "Minecraft Minigame",
@@ -78,7 +147,7 @@
                 "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             }
         },
-         {
+        {
             "logo": "minenets.webp",
             "name": "MineNets",
             "info": "Minecraft Server Discovery & Bookmarking",

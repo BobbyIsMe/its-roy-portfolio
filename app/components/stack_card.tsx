@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 
-const StackCard = ({children} : {children : ReactNode}) => {
+const StackCard = ({ children, className }: { children: ReactNode, className?: string }) => {
   return (
-    <div className="stackCard">
+    <div className={`stackCard ${className ?? ""}`}>
       {children}
     </div>
   )
