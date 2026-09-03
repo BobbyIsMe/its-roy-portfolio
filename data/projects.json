@@ -107,9 +107,7 @@
             },
             "features": [
                 {
-                    "label": [
-                        "Feature 1"
-                    ],
+                    "label": "Feature 1",
                     "detail": {
                         "image": [
                             "cerina_store_1.webp"
@@ -143,9 +141,7 @@
             },
             "features": [
                 {
-                    "label": [
-                        "Feature 1"
-                    ],
+                    "label": "Feature 1",
                     "detail": {
                         "image": [
                             "cerina_store_1.webp"
@@ -179,9 +175,7 @@
             },
             "features": [
                 {
-                    "label": [
-                        "Feature 1"
-                    ],
+                    "label": "Feature 1",
                     "detail": {
                         "image": [
                             "cerina_store_1.webp"
