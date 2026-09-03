@@ -6,6 +6,7 @@ import Divider from '@/app/components/divider';
 
 export type TechStackSection = {
   header: string;
+  path: string;
   techStacks: TechStack[];
 }
 
@@ -14,11 +15,11 @@ export type TechStack = {
   name: string;
 }
 
-const TechStackRow = ({ icon, name }: { icon: string, name: string }) => {
+const TechStackRow = ({ icon, path, name }: { icon: string, path : string, name: string }) => {
   return (
     <div className={styles.techStack}>
       <div className={styles.techStackImage}>
-        <Image src={icon} alt={`${name}_img`} width={64} height={64}></Image>
+        <Image src={`${path}${icon}`} alt={`${name}_img`} width={64} height={64}></Image>
       </div>
       <div>{name}</div>
     </div>
@@ -33,7 +34,7 @@ const TechStackCard = ({techStackSect}: {techStackSect : TechStackSection}) => {
       </div>
       <Divider/>
       <div className="grid lg:grid-cols-2 p-5">
-        {techStackSect.techStacks.map(techStack => <TechStackRow key={techStack.name} icon={techStack.icon} name={techStack.name} />)}
+        {techStackSect.techStacks.map(techStack => <TechStackRow key={techStack.name} icon={techStack.icon} path={techStackSect.path} name={techStack.name} />)}
       </div>
     </StackCard>
   )

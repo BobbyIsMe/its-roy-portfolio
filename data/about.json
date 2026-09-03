@@ -1,0 +1,175 @@
+{
+    "meetRoy": [
+        {
+            "text": "Hello, I am Roy Dennis M. Patalinghug! I am a 3rd year Filipino student, currently taking Bachelor of Science in Information Technology at the University of San Carlos. \n\nI love to play video games such as &bMinecraft, Touhou, VALORANT, Roblox, &fand more! I also love to listen to music, and my favorite genres are &aR&&aB, country, rock, and hip-hop. &fSome of my favorite artists are &bDaniel Caesar, Twenty One Pilots, P!ATD, Radiohead, Kenny Rogers, and Arctic Monkeys.\n\n&fWant to know more about me? Go to the next pages to read more about my education and journey to becoming a developer!"    
+        },
+        {
+            "text": "My Junior High School and Senior High School were at &bUniversity of San Carlos - North Campus.&f from 2018 until 2024. During those years, I developed my interests in &aprogramming, technology, and computer hardware. &fI was a known computer geek at my class, and I always helped my classmates whenever they were facing tech-related questions.\n\nMy college currently is at &bUniversity of San Carlos - Talamban Campus&f, and I'm glad that I am able to finally focus on my passion in becoming a developer in the future.\n\n&cWarning: Long yap session ahead"
+        },
+        {
+            "text": "I started programming back in &b2018 &fbecause of a Minecraft Minigame called &eAnnihilation&f, which inspired me to make my own Minecraft server and copy their minigame to play with my online friends privately since I didn't have a premium account to join the official server.\n\nI learned &bJava &fas my first programming language through YouTube tutorials and reading many source codes (credits to &bMrLittleKitty in GitHub&f) that helped me create my own plugins for my server and my friends' servers. I also began learning &bMySQL &ffor database management, &bXAMPP &ffor database hosting, &bFileZilla&f for file transferring, and &bGitHub &ffor managing my projects. Overall, these experiences built my tech stack foundation."
+        },
+        {
+            "text": "I transitioned to Minecraft Bedrock back in &b2020 &fduring the pandemic because not all of my real life friends could run Minecraft Java, and I wanted to play with them on my own server. While searching for server APIs available or bedrock, I discovered &bNukkit&f and started developing entertainment plugins for their small community. \n\nAfter learning Nukkit API, my first major plugin I developed was called &eMurderRun, &finspired by SSundee's MurderRun series in YouTube. My goal was to create and promote the minigame that other servers can use through user-friendly configurations and customizations."
+        },
+        {
+            "text": "I expanded my developer journey in Senior High School where I learned &bFlutter Framework &fthat was used on my research group project called &eHealthink&f. It was the first time that I used a framework and new programming language to create a mobile application, and it took me 1 week to learn the basics and another week to finish the application, thanks to my already established knowledge of coding beforehand.\n\nIn college, I learned &bC&f as part of my curriculum in 1st and 2nd year, covering topics such as its fundamentals, and Algorithm and Data Structures. I also had &bWebsite Development &fwhere I learned &bHTML, CSS, JavaScript, and PHP&f. I was the backend developer on majority of website-related projects I've worked with since my designing skill is not the best."
+        },
+        {
+            "text": "For our &bSystems Integration and Architecture, &fI learned how to use &bSpring Boot &ffor creating backend services, and it uses Java so I was thankful to learn a new framework with my favorite programming language. This is when I made &eMineNets&f cross-platform mobile application as my project for the subject.\n\nFor my capstone project that I'll be working on with by group, we decided on proposing a &bWedding Planner Collaboration&f website using &bNext.js, NestJS, and PostgreSQL. &fCurrently, I am learning about &bNext.js and NestJS &ffor 1 month now to prepare myself on developing the website soon."
+        },
+        {
+            "text": "That's all for now on my little blog, and I will add more content soon given more time in the future. I hope you enjoyed reading my story if you've made it this far. For more information of my projects, visit my GitHub!"
+        }
+    ],
+    "royMeaning": [
+        {
+            "letter": "R",
+            "meaning": "Right man for the job.",
+            "blockImg": "diamond.webp",
+            "itemImg": "diamond_ingot.webp",
+            "color": "text-[rgb(102,246,228)]"
+        },
+        {
+            "letter": "O",
+            "meaning": "Object oriented enthusiast",
+            "blockImg": "gold.webp",
+            "itemImg": "gold_ingot.webp",
+            "color": "text-[rgb(240,235,80)]"
+        },
+        {
+            "letter": "Y",
+            "meaning": "You. Only. Live. Once.",
+            "blockImg": "iron.webp",
+            "itemImg": "iron_ingot.webp",
+            "color": "text-[rgb(188,153,128)]"
+        }
+    ],
+    "certificates": [
+        {
+            "logo": "accenture.svg",
+            "name": "Accenture",
+            "description": "Skills to Succeed Academy",
+            "date": "May 1, 2025",
+            "certificate": [
+                "accenture.webp"
+            ]
+        },
+        {
+            "logo": "codechum.svg",
+            "name": "CodeChum",
+            "description": "G2 CIS 1201 2nd Sem 2024-2025",
+            "date": "May 23, 2025",
+            "certificate": [
+                "codechum.webp"
+            ]
+        },
+        {
+            "logo": "datacamp.svg",
+            "name": "DataCamp",
+            "description": "Course Completions",
+            "date": "December 23, 2025",
+            "certificate": [
+                "datacamp_1.webp",
+                "datacamp_2.webp",
+                "datacamp_3.webp",
+                "datacamp_4.webp"
+            ]
+        },
+        {
+            "logo": "cisco.svg",
+            "name": "CISCO",
+            "description": "CCNA: Switching, Routing, and Wireless Essentials",
+            "date": "February 2, 2026",
+            "certificate": [
+                "cisco.webp"
+            ]
+        }
+    ],
+    "techStacks": [
+        {
+            "header": "FRONTEND TECHNOLOGIES",
+            "path": "/frontend/",
+            "techStacks": [
+                {
+                    "icon": "react.svg",
+                    "name": "React"
+                },
+                {
+                    "icon": "nextjs.svg",
+                    "name": "Next.js"
+                },
+                {
+                    "icon": "flutter.svg",
+                    "name": "Flutter"
+                },
+                {
+                    "icon": "javascript.svg",
+                    "name": "JavaScript"
+                },
+                {
+                    "icon": "tailwind.svg",
+                    "name": "Tailwind CSS"
+                }
+            ]
+        },
+        {
+            "header": "BACKEND TECHNOLOGIES",
+            "path": "/backend/",
+            "techStacks": [
+                {
+                    "icon": "nestjs.svg",
+                    "name": "NestJS"
+                },
+                {
+                    "icon": "postgresql.svg",
+                    "name": "PostgreSQL"
+                },
+                {
+                    "icon": "springboot.svg",
+                    "name": "SpringBoot"
+                },
+                {
+                    "icon": "mysql.svg",
+                    "name": "MySQL"
+                }
+            ]
+        },
+        {
+            "header": "PROGRAMMING LANGUAGES",
+            "path": "/proglang/",
+            "techStacks": [
+                {
+                    "icon": "c.svg",
+                    "name": "C"
+                },
+                {
+                    "icon": "cs.svg",
+                    "name": "C#"
+                },
+                {
+                    "icon": "java.svg",
+                    "name": "Java"
+                },
+                {
+                    "icon": "dart.svg",
+                    "name": "Dart"
+                }
+            ]
+        },
+        {
+            "header": "DevOps Tools",
+            "path": "/devops/",
+            "techStacks": [
+                {
+                    "icon": "git.svg",
+                    "name": "Git"
+                },
+                {
+                    "icon": "docker.svg",
+                    "name": "Docker"
+                }
+            ]
+        }
+    ]
+}

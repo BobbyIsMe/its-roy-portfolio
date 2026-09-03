@@ -4,6 +4,7 @@ import { Project } from '../components/project_props';
 import { ProjectsOverview } from '../subsections/projects_overview';
 import ProjectDetails from './project_details';
 import Subsection from '@/app/components/subsection';
+import projects from '@/data/projects.json';
 
 const cerina_store: Project = {
   logo: "cerina_store.webp",
@@ -32,9 +33,7 @@ const cerina_store: Project = {
   },
 };
 
-const project_list: Project[] = [
-  cerina_store, cerina_store, cerina_store, cerina_store
-];
+const project_list: Project[] = projects.featured;
 
 const ProjectSubsection = () => {
 

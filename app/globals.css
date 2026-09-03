@@ -72,7 +72,7 @@ h2 {
 }
 
 .minecraftButtonBorder {
-  @apply border-2 border-black;
+  @apply border-2 border-black ;
 }
 
 .minecraftButtonBorder:hover, .minecraftButtonBorder:active {
@@ -134,7 +134,7 @@ h2 {
 }
 
 .sectionContent {
-  @apply bg-black/20 p-4 border-2 border-black flex flex-col gap-20 py-20 pb-20;
+  @apply bg-black/20 p-[clamp(0.8rem,1vw,3rem)] border-2 border-black flex flex-col gap-20 py-20 pb-20;
 }
 
 

@@ -20,10 +20,6 @@ export const Constants = {
 
   CERTIFICATES_PATH: "/certificates/",
 
-  FRONTEND_PATH: "/frontend/",
-  BACKEND_PATH: "/frontend/",
-  PROGLANG_PATH: "/proglang/",
-
   LOGOS_PATH: "/logos/",
   DESC_PATH: "/desc/",
   FEATURE_PATH: "/features/",

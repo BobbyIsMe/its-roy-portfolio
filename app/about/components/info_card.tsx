@@ -1,30 +1,15 @@
 "use client"
 import React, { useState } from 'react'
 import styles from '../about.module.css'
-import MinecraftButton from '@/app/components/minecraft_button';
 import Pagination from '@/app/components/pagination';
-
-const Text = () => {
-
-}
+import about from '@/data/about.json';
+import TextColor from '@/app/components/text_color';
 
 type TextInfo = {
     text: string
 }
 
-const intro: TextInfo = {
-    text: "Hello, I am Roy Dennis M. Patalinghug! I am a 3rd year student, currently taking Bachelor of Science in Information Technology at the University of San Carlos."
-}
-
-const textList: TextInfo[] = [
-    intro, intro, intro
-];
-
-const NavigateButton = ({ text, onClick, isShown }: { text: string, onClick: () => void, isShown: boolean }) => {
-    return (
-        isShown ? <MinecraftButton onClick={onClick}>{text}</MinecraftButton> : <></>
-    );
-}
+const textList: TextInfo[] = about.meetRoy;
 
 const InfoCard = () => {
     const [page, setPage] = useState(0);
@@ -35,7 +20,7 @@ const InfoCard = () => {
                 <div className={styles.infoCardInner}>
                     <div className={styles.infoCardText}> MEET ROY</div>
                     <div className={styles.infoCardContent}>
-                        <div className={`${styles.contentText} overflow-y-auto`}>{textList[page].text}</div>
+                        <div className={`${styles.contentText} overflow-y-auto`}><TextColor text={textList[page].text}/></div>
                         <Pagination currentPage={page} maxPage={textList.length} 
                         onPrevious={() => {
                             setPage(page - 1)

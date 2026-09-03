@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
 
-const MinecraftButton = ({ children, onClick, className, href, }: { children: ReactNode, onClick?: () => void, className?: string, href?: string }) => {
+const MinecraftButton = ({ children, onClick, parentClassName, className, href, }: { children: ReactNode, onClick?: () => void, parentClassName? : string, className?: string, href?: string }) => {
 
   if (href) {
     return (
@@ -15,9 +15,9 @@ const MinecraftButton = ({ children, onClick, className, href, }: { children: Re
         onMouseDown={() => {
           new Audio("/click.mp3").play().catch(() => { });
         }}
-        className="minecraftButtonBorder"
+        className={twMerge("minecraftButtonBorder", parentClassName)}
       >
-        <div className={twMerge("minecraftButton flex items-center justify-center p-4", className)}>{children}</div>
+        <div className={twMerge("minecraftButton flex items-center justify-center p-[clamp(0.5rem,0.1rem+1vw,1.5rem)]", className)}>{children}</div>
       </a>
     );
   }
@@ -29,9 +29,9 @@ const MinecraftButton = ({ children, onClick, className, href, }: { children: Re
       onMouseDown={() => {
         new Audio("/click.mp3").play().catch(() => { });
       }}
-      className="minecraftButtonBorder"
+      className={twMerge("minecraftButtonBorder", parentClassName)}
     >
-      <div className={twMerge("minecraftButton flex items-center justify-center p-4", className)}>{children}</div>
+      <div className={twMerge("minecraftButton flex items-center justify-center p-[clamp(0.5rem,0.1rem+1vw,1.5rem)]", className)}>{children}</div>
     </button>
   );
 };

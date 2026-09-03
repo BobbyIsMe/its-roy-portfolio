@@ -29,7 +29,7 @@ export const ProjectNavigationCard = ({ project, onExit, onChangeTab }: { projec
         <StackCard>
             <div className="grid items-start w-full lg:w-100 grid-cols-[auto_1fr]">
                 <div className="self-center mx-1">
-                    <MinecraftButton className={`col-span-1 self-center w-10 h-10 ${styles.choiceInfo}`} onClick={onExit}>
+                    <MinecraftButton className={`col-span-1 self-center max-w-10 max-h-10 ${styles.choiceInfo}`} onClick={onExit}>
                         {"<"}
                     </MinecraftButton>
                 </div>
@@ -61,7 +61,7 @@ export const ProjectDetailsCard = ({ projectTabDetail }: { projectTabDetail: Pro
             <div className="max-w-200 flex flex-col gap-5 h-200 md:h-150">
                 <div className={`${styles.optionText} self-center`}>{projectTabDetail.tab}</div>
                 <Divider />
-                <div className="relative w-full h-80 cursor-pointer">
+                <div className="relative h-40 cursor-pointer shrink-0">
                     <Image src={image} alt={projectTabDetail.tab} fill className="object-cover"
                         onClick={() => setIsPopupOpen(true)}
                     />

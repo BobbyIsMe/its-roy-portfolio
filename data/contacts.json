@@ -1,0 +1,30 @@
+{
+    "socials": [
+        {
+            "label": "EMAIL",
+            "contact": "joshuacc823@gmail.com"
+        },
+        {
+            "label": "CONTACT NUMBER",
+            "contact": "+639616371106"
+        },
+        {
+            "label": "DISCORD",
+            "contact": "reimoon_"
+        }
+    ],
+    "links": [
+        {
+            "icon": "facebook.svg",
+            "url": "https://www.facebook.com/roydennis.patalinghug/"
+        },
+        {
+            "icon": "instagram.svg",
+            "url": "https://www.instagram.com/rei.muun/"
+        },
+        {
+            "icon": "github.svg",
+            "url": "https://github.com/BobbyIsMe"
+        }
+    ]
+}

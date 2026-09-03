@@ -3,45 +3,10 @@ import CertificateCard, { Certificate } from '../components/certificate_card'
 import styles from "../about.module.css";
 import Subsection from '@/app/components/subsection';
 import { Constants } from '@/app/constants';
+import about from '@/data/about.json';
 
-const accenture_cert: Certificate = {
-    logo: "accenture.svg",
-    name: "Accenture",
-    description: "Skills to Succeed Academy",
-    date: "May 1, 2025",
-    certificate: ["accenture.webp"],
-};
 
-const codechum_cert: Certificate = {
-    logo: "codechum.svg",
-    name: "CodeChum",
-    description: "G2 CIS 1201 2nd Sem 2024-2025",
-    date: "May 23, 2025",
-    certificate: ["codechum.webp"],
-};
-
-const datacamp_cert: Certificate = {
-    logo: "datacamp.svg",
-    name: "DataCamp",
-    description: "Course Completions",
-    date: "December 23, 2025",
-    certificate: ["datacamp_1.webp", "datacamp_2.webp", "datacamp_3.webp", "datacamp_4.webp"],
-};
-
-const cisco_cert: Certificate = {
-    logo: "cisco.svg",
-    name: "CISCO",
-    description: "CCNA: Switching, Routing, and Wireless Essentials",
-    date: "February 2, 2026",
-    certificate: ["cisco.webp"],
-};
-
-const certificate_list: Certificate[] = [
-    accenture_cert,
-    codechum_cert,
-    datacamp_cert,
-    cisco_cert
-];
+const certificate_list: Certificate[] = about.certificates;
 
 const Certificates = () => {
     return (

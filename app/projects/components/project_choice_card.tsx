@@ -10,8 +10,8 @@ import styles from '../projects.module.css';
 const ProjectChoice = ({ project, onClick }: { project: Project, onClick: (project: Project) => void }) => {
 
   return (
-    <MinecraftButton onClick={() => onClick(project)}>
-      <div className="p-5 flex flex-col justify-center aspect-square max-w-80 max-h-80 gap-5 items-center">
+    <MinecraftButton onClick={() => onClick(project)} parentClassName="w-full h-full max-w-80 max-h-80" className="w-full h-full max-w-80 h-w-80">
+      <div className="p-5 flex flex-col justify-center gap-5 items-center">
         <Image src={`${Constants.LOGOS_PATH}${project.logo}`} alt={project.name} width="128" height="128" />
         <div className={styles.choiceTitle}>{project.name}</div>
         <div className={styles.choiceInfo}>{project.info}</div>

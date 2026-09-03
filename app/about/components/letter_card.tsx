@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import styles from '../about.module.css'
 import Image from 'next/image'
 import { Constants } from '@/app/constants';

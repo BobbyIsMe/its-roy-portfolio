@@ -3,6 +3,10 @@ import ContactInformationCard from '../components/contact_information_card';
 import ContactInformationLinks from '../components/contact_information_links';
 import styles from '../contact.module.css';
 import ContactSection from '../components/contact_section';
+import { ContactInformationSocial } from '../components/contact_information_props';
+import contacts from '@/data/contacts.json';
+
+const socials : ContactInformationSocial[] = contacts.socials;
 
 const ContactInformation = () => {
     return (
@@ -10,9 +14,9 @@ const ContactInformation = () => {
             <div className={`${styles.contactInfo} flex flex-1 flex-col`}>
                 <div className="flex flex-1 flex-col">
                     <div className={`${styles.contactInputCard} flex flex-1 flex-col gap-5`}>
-                        <ContactInformationCard label="EMAIL" contact="joshuacc823@gmail.com" />
-                        <ContactInformationCard label="CONTACT NUMBER" contact="+639616371106" />
-                        <ContactInformationCard label="DISCORD" contact="BobbyIsMe" />
+                        {
+                            socials.map(social => <ContactInformationCard key={social.label} label={social.label} contact={social.contact} />)
+                        }
                     </div>
 
                     <div className={`${styles.contactInputCard} mt-auto`}>

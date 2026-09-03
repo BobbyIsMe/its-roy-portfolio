@@ -1,7 +1,7 @@
 @reference 'tailwindcss';
 
 .optionText {
-  @apply text-[clamp(1rem,0.3rem+1vw,1.5rem)];
+  @apply text-[clamp(0.6rem,0.3rem+1vw,1.5rem)];
   color: white;
   font-family: var(--font-mc-nametag);
   text-align: left;

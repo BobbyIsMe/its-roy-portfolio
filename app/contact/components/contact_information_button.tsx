@@ -5,7 +5,7 @@ import MinecraftButton from '@/app/components/minecraft_button';
 
 const ContactInformationButton = ({ icon, url }: { icon: string, url: string }) => {
     return (
-        <MinecraftButton href={url} >
+        <MinecraftButton href={url} className="w-16 h-16 p-0">
             <Image
                 src={`${Constants.CONTACTS_PATH}${icon}`}
                 alt={icon}
